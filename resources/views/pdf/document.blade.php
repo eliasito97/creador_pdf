@@ -25,11 +25,11 @@
 <p>{{ $content }}</p>
 
 <div class="images">
-    <p>{{'public/uploads/'.$image->getClientOriginalName()}}</p>
 
-@foreach ($image as $ima)
+
+    @foreach ($image as $ima)
         <img class="rounded-circle" width="35" height="35"
-             src="{{asset('public/uploads/users/'.$ima->image)}}" alt="">
+             src="{{ asset('storage/'.$ima) }}" alt="">
     @endforeach
 </div>
 

@@ -1,13 +1,13 @@
-<form action="{{ route('generate.pdf') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    <label for="title">Título</label>
-    <input type="text" name="title"  required>
+    <label for="title">Título:</label>
+    <input type="text" name="title" id="title" required class="border rounded p-2 mb-4">
 
-    <label for="content">Contenido</label>
-    <textarea name="contenido" required></textarea>
+    <label for="content">Contenido:</label>
+    <textarea name="content" id="content" required class="border rounded p-2 mb-4"></textarea>
 
-    <label for="images">Sube tus imágenes</label>
-    <input type="file" name="images[]" multiple>
+    <label for="image">Imágenes:</label>
+    <input type="file" name="images[]" id="images" multiple class="border rounded p-2 mb-4">
 
-    <button type="submit">Generar PDF</button>
+    <button type="submit" class="bg-blue-500 text-white p-2 rounded">Crear Post</button>
 </form>

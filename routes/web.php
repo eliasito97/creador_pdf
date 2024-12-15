@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\PostController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,11 @@ use App\Http\Controllers\PdfController;
 |
 */
 Route::get('pdf/form', [PdfController::class, 'showForm'])->name('pdf.form');
-Route::post('/generate-pdf', [PdfController::class, 'generatePDF'])->name('generate.pdf');
-
+Route::post('/generate-pdf/{id}', [PdfController::class, 'generatePDF'])->name('generate.pdf');
+Route::post('/post', [PostController::class, 'store'])->name('post.store');
 Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
+Route::get('/create', [PostController::class, 'create'])->name('post.create');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('grid');
 });

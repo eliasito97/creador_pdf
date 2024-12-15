@@ -36,10 +36,17 @@
     <p>{{ $text }}</p>
 
     <h2>Imágenes subidas:</h2>
-    <div class="images">
-        @foreach($image as $ima)
-            <img src="{{asset('public/uploads/users/'.$ima->image)}}" alt="Imagen subida">
-        @endforeach
+    <div class="container mx-auto px-4 py-6">
+        <div class="bg-white p-4 rounded-lg shadow-lg">
+            <h1 class="text-2xl font-bold mb-4">{{ $post->title }}</h1>
+            <p>{{ $post->content }}</p>
+
+            <div class="mt-4">
+                @foreach ($post->images as $image)
+                    <img src="{{ asset('storage/' . $image->image) }}" alt="Imagen del post" class="w-full h-auto rounded-lg mb-4">
+                @endforeach
+            </div>
+        </div>
     </div>
 </div>
 </body>
